@@ -49,26 +49,33 @@ Author: J C Pottle
         </div>
     </nav>
     <!-- Nav End -->
-
+    <h2>Ultra Sound Report</h2>
     <form>
+        <h4>Date</h4>
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" class="form-control" id="date">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div><hr>
         <h4>Basics</h4>
         <div class="form-group">
             <label for="patientName">Patient's name:</label>
-            <input type="email" class="form-control" id="patientName" placeholder="Babe">
+            <input type="text" class="form-control" id="patientName" placeholder="Babe">
             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
         </div>
         <div class="form-group">
             <label for="ownerName">Owner:</label>
-            <input type="password" class="form-control" id="ownerName" placeholder="Paul Bunyan">
+            <input type="text" class="form-control" id="ownerName" placeholder="Paul Bunyan">
         </div>
         <div class="form-group">
             <label for="RDVM">RDVM:</label>
-            <input type="password" class="form-control" id="RDVM" placeholder="???">
+            <input type="text" class="form-control" id="RDVM" placeholder="???">
         </div>
         <div class="form-group">
             <label for="signalment">Signalment:</label>
-            <input type="password" class="form-control" id="signalment" placeholder="???">
-        </div><hr>
+            <input type="text" class="form-control" id="signalment" placeholder="???">
+        </div>
+        <hr>
         <!-- Start of Gender RB -->
         <h4>Gender?</h4>
         <div class="col-sm-10">
@@ -90,7 +97,8 @@ Author: J C Pottle
                     Female
                 </label>
             </div>
-        </div><hr>
+        </div>
+        <hr>
         <!-- End of Gender RB -->
         <!-- Start of Age RB -->
         <h4>Age?</h4>
@@ -119,7 +127,8 @@ Author: J C Pottle
                     Adult
                 </label>
             </div>
-        </div><hr>
+        </div>
+        <hr>
         <!-- End of Age RB -->
         <!-- Start of ??? RB -->
         <h4>????</h4>
@@ -166,12 +175,14 @@ Author: J C Pottle
                     Other
                 </label>
             </div>
-        </div><hr>
+        </div>
+        <hr>
         <!-- End of ??? RB -->
         <div class="form-group">
             <label for="history">History of patient:</label>
             <textarea class="form-control" id="history" rows="3"></textarea>
-        </div><hr>
+        </div>
+        <hr>
         <!-- Start of Study RB -->
         <h4>Area of study</h4>
         <div class="col-sm-10">
@@ -199,10 +210,10 @@ Author: J C Pottle
                     RH
                 </label>
             </div>
-        </div><hr>
+        </div>
         <!-- End of Study RB -->
         <div class="form-group">
-            <!-- <label for="history">History of patient:</label> -->
+            <label for="study">Area of study - explanation:</label>
             <textarea class="form-control" id="study" rows="3"></textarea>
         </div><hr>
         <h4>Findings</h4>
@@ -223,12 +234,38 @@ Author: J C Pottle
         <div class="form-group">
             <label for="interpretation">Interpretation:</label>
             <textarea class="form-control" id="interpretation" rows="3"></textarea>
-        </div><hr>
+        </div>
+        <hr>
         <h4>Recommendations</h4>
         <div class="form-group">
             <label for="recommendation">Recommendation:</label>
             <textarea class="form-control" id="recommendation" rows="4"></textarea>
         </div><hr>
+        <h4>Optional</h4>
+        <div class="form-group">
+            <label for="ultrasound">Ultrasound:</label>
+            <input type="text" class="form-control" id="ultrasound">
+        </div>
+        <div class="form-group">
+            <label for="call">Call:</label>
+            <input type="text" class="form-control" id="call">
+        </div>
+        <div class="form-group">
+            <label for="tq">TQ:</label>
+            <input type="text" class="form-control" id="tq">
+        </div>
+        <div class="form-group">
+            <label for="doppler">Doppler:</label>
+            <input type="text" class="form-control" id="doppler">
+        </div>
+        <div class="form-group">
+            <label for="other">Other:</label>
+            <input type="text" class="form-control" id="other">
+        </div>
+        <div class="form-group">
+            <label for="total">TOTAL:</label>
+            <input type="text" class="form-control" id="total">
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
