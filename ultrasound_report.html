@@ -57,7 +57,8 @@ Author: J C Pottle
             <label for="date">Date:</label>
             <input type="date" class="form-control" id="date">
             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-        </div><hr class="bg-dark">
+        </div>
+        <hr class="bg-dark">
         <h4>Basics</h4>
         <div class="form-group">
             <label for="patientName">Patient's name:</label>
@@ -79,7 +80,7 @@ Author: J C Pottle
         <hr class="bg-dark">
         <!-- Start of Gender RB -->
         <h4>Gender?</h4>
-        <div class="col-sm-10">
+        <!-- <div class="col-sm-10">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="genderRadios" id="colt" value="colt" checked>
                 <label class="form-check-label" for="colt">
@@ -98,12 +99,20 @@ Author: J C Pottle
                     Female
                 </label>
             </div>
+        </div> -->
+        <div class="form-group">
+            <select title="Gender" class="form-control selectpicker">
+                <option>Select...</option>
+                <option>Colt</option>
+                <option>Gelding</option>
+                <option>Female</option>
+            </select>
         </div>
         <hr class="bg-dark">
         <!-- End of Gender RB -->
         <!-- Start of Age RB -->
         <h4>Age?</h4>
-        <div class="col-sm-10">
+        <!-- <div class="col-sm-10">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="ageRadios" id="foal" value="foal" checked>
                 <label class="form-check-label" for="foal">
@@ -128,12 +137,21 @@ Author: J C Pottle
                     Adult
                 </label>
             </div>
+        </div> -->
+        <div class="form-group">
+            <select title="Gender" class="form-control selectpicker">
+                <option>Select...</option>
+                <option>Foal</option>
+                <option>Wnlg</option>
+                <option>Yrlg</option>
+                <option>Adult</option>
+            </select>
         </div>
         <hr class="bg-dark">
         <!-- End of Age RB -->
         <!-- Start of ??? RB -->
         <h4>????</h4>
-        <div class="col-sm-10">
+        <!-- <div class="col-sm-10">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="Radios" id="TB" value="TB" checked>
                 <label class="form-check-label" for="TB">
@@ -176,6 +194,17 @@ Author: J C Pottle
                     Other
                 </label>
             </div>
+        </div> -->
+        <div class="form-group">
+            <select title="Gender" class="form-control selectpicker">
+                <option>Select...</option>
+                <option>TB</option>
+                <option>Stbd</option>
+                <option>ASB</option>
+                <option>Wmbld</option>
+                <option>TWH</option>
+                <option>Other</option>
+            </select>
         </div>
         <hr class="bg-dark">
         <!-- End of ??? RB -->
@@ -186,7 +215,7 @@ Author: J C Pottle
         <hr class="bg-dark">
         <!-- Start of Study RB -->
         <h4>Area of study</h4>
-        <div class="col-sm-10">
+        <!-- <div class="col-sm-10">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="studyRadios" id="lf" value="lf" checked>
                 <label class="form-check-label" for="lf">
@@ -211,12 +240,22 @@ Author: J C Pottle
                     RH
                 </label>
             </div>
+        </div> -->
+        <div class="form-group">
+            <select title="Gender" class="form-control selectpicker">
+                <option>Select...</option>
+                <option>LF</option>
+                <option>RF</option>
+                <option>LH</option>
+                <option>RH</option>
+            </select>
         </div>
         <!-- End of Study RB -->
         <div class="form-group">
             <label for="study">Area of study - explanation:</label>
             <textarea class="form-control" id="study" rows="3"></textarea>
-        </div><hr class="bg-dark">
+        </div>
+        <hr class="bg-dark">
         <h4>Findings</h4>
         <div class="form-group">
             <label for="lateral">Lateral:</label>
@@ -225,12 +264,14 @@ Author: J C Pottle
         <div class="form-group">
             <label for="medial">Medial:</label>
             <textarea class="form-control" id="medial" rows="6"></textarea>
-        </div><hr class="bg-dark">
+        </div>
+        <hr class="bg-dark">
         <h4>Doppler</h4>
         <div class="form-group">
             <label for="doppler">Doppler:</label>
             <textarea class="form-control" id="doppler" rows="3"></textarea>
-        </div><hr class="bg-dark">
+        </div>
+        <hr class="bg-dark">
         <h4>Interpretation</h4>
         <div class="form-group">
             <label for="interpretation">Interpretation:</label>
@@ -241,7 +282,8 @@ Author: J C Pottle
         <div class="form-group">
             <label for="recommendation">Recommendation:</label>
             <textarea class="form-control" id="recommendation" rows="4"></textarea>
-        </div><hr class="bg-dark">
+        </div>
+        <hr class="bg-dark">
         <h4>Optional</h4>
         <div class="form-group">
             <label for="ultrasound">Ultrasound:</label>
