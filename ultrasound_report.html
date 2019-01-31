@@ -22,7 +22,7 @@ Author: J C Pottle
     <title>Ultrasound Report</title>
 </head>
 
-<body ng-app="mainApp" ng-controller="mainController">
+<body ng-app="mainApp">
     <!-- Nav Start -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Ultra Horse Forms</a>
@@ -54,7 +54,7 @@ Author: J C Pottle
     <form>
         <h2>Ultra Sound Report</h2>
         <h4>Basics</h4>
-        <div class="form-group">
+        <div class="form-group" ng-controller="dateCtrl">
             <label for="date">Date:</label>
             <input type="date" class="form-control" id="date" value="{{date | date:'yyyy-MM-dd'}}">
         </div>
@@ -73,7 +73,7 @@ Author: J C Pottle
         <hr class="bg-dark">
         <h4>RDVM</h4>
         <div class="form-group">
-            <select title="Gender" class="form-control selectpicker">
+            <select title="Gender" class="form-control selectpicker" ng-controller="docCtrl">
                 <option>Select...</option>
                 <option ng-repeat="x in doctors">Dr. {{x}}</option>
             </select>
@@ -181,12 +181,11 @@ Author: J C Pottle
     <!-- *for select list options -->
     <script>
         var app = angular.module("mainApp", []);
-        app.controller("mainController", function ($scope) {
+        app.controller("docCtrl", function ($scope) {
             $scope.doctors = ['Barber', 'Brown', 'Paasch', 'Spike-Pierce', 'Garrett', 'Bramlage', 'Embertson',
-                'Hopper', 'Ruggles', 'Woodie', 'Friend', 'Cook', 'Soignier', 'Embly', 'Metcalfe'
-            ]
+                'Hopper', 'Ruggles', 'Woodie', 'Friend', 'Cook', 'Soignier', 'Embly', 'Metcalfe']
         });
-        app.controller("mainController", function Ctrl($scope) {
+        app.controller("dateCtrl", function Ctrl($scope) {
             $scope.date = new Date();
         })
     </script>
