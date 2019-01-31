@@ -16,12 +16,13 @@ Author: J C Pottle
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <link rel="stylesheet" href="form.css">
+    <link rel='icon' href='favicon.ico' type='image/x-icon' />
     <title>Ultrasound Report</title>
-    <link rel='icon' href='favicon.ico' type='image/x-icon'/>
 </head>
 
-<body>
+<body ng-app="mainApp" ng-controller="mainController">
     <!-- Nav Start -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Ultra Horse Forms</a>
@@ -52,81 +53,91 @@ Author: J C Pottle
     <!-- Nav End -->
     <form>
         <h2>Ultra Sound Report</h2>
-        <h4>Date</h4>
+        <h4>Basics</h4>
         <div class="form-group">
             <label for="date">Date:</label>
-            <input type="date" class="form-control" id="date">
-            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            <input type="date" class="form-control" id="date" value="{{date | date:'yyyy-MM-dd'}}">
         </div>
-        <hr class="bg-dark">
-        <h4>Basics</h4>
         <div class="form-group">
             <label for="patientName">Patient's name:</label>
             <input type="text" class="form-control" id="patientName" placeholder="Babe">
-            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
         </div>
         <div class="form-group">
             <label for="ownerName">Owner:</label>
             <input type="text" class="form-control" id="ownerName" placeholder="Paul Bunyan">
         </div>
         <div class="form-group">
-            <label for="RDVM">RDVM:</label>
-            <input type="text" class="form-control" id="RDVM" placeholder="???">
-        </div>
-        <div class="form-group">
-            <label for="signalment">Signalment:</label>
-            <input type="text" class="form-control" id="signalment" placeholder="???">
-        </div>
-        <hr class="bg-dark">
-        <!-- Start of Gender RB -->
-        <h4>Gender?</h4>
-        <div class="form-group">
-            <select title="Gender" class="form-control selectpicker">
-                <option>Select...</option>
-                <option>Colt</option>
-                <option>Gelding</option>
-                <option>Female</option>
-            </select>
-        </div>
-        <hr class="bg-dark">
-        <!-- End of Gender RB -->
-        <!-- Start of Age RB -->
-        <h4>Age?</h4>
-        <div class="form-group">
-            <select title="Gender" class="form-control selectpicker">
-                <option>Select...</option>
-                <option>Foal</option>
-                <option>Wnlg</option>
-                <option>Yrlg</option>
-                <option>Adult</option>
-            </select>
-        </div>
-        <hr class="bg-dark">
-        <!-- End of Age RB -->
-        <!-- Start of ??? RB -->
-        <h4>????</h4>
-        <div class="form-group">
-            <select title="Gender" class="form-control selectpicker">
-                <option>Select...</option>
-                <option>TB</option>
-                <option>Stbd</option>
-                <option>ASB</option>
-                <option>Wmbld</option>
-                <option>TWH</option>
-                <option>Other</option>
-            </select>
-        </div>
-        <hr class="bg-dark">
-        <!-- End of ??? RB -->
-        <div class="form-group">
             <label for="history">History of patient:</label>
             <textarea class="form-control" id="history" rows="3"></textarea>
         </div>
         <hr class="bg-dark">
-        <!-- Start of Study RB -->
-        <h4>Area of study</h4>
+        <h4>RDVM</h4>
         <div class="form-group">
             <select title="Gender" class="form-control selectpicker">
+                <option>Select...</option>
+                <option ng-repeat="x in doctors">Dr. {{x}}</option>
+            </select>
+            <!-- TODO: needs input if doctor is not on list -->
+            <!-- <input type="text" class="form-control" id="RDVM"> -->
+        </div>
+
+        <hr class="bg-dark">
+        <h4>Gender</h4>
+        <div class="form-group">
+            <select title="Gender" class="form-control selectpicker">
+                <option>Select...</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Colt</option>
+                <option>Gelding</option>
+                <option>Filly</option>
+                <option>Mare</option>
+            </select>
+        </div>
+        <hr class="bg-dark">
+        <h4>Age</h4>
+        <div class="form-group">
+            <select title="age" class="form-control selectpicker">
+                <option>Select...</option>
+                <option>Foal</option>
+                <option>Wnlg</option>weanling
+                <option>Yrlg</option>yearling
+                <option>Adult</option>
+            </select>
+        </div>
+        <hr class="bg-dark">
+        <h4>Breed</h4>
+        <div class="form-group">
+            <select title="breed" class="form-control selectpicker">
+                <option>Select...</option>
+                <option>Throughbred</option>
+                <option>Quarter Horse</option>
+                <option>Standardbred</option>
+                <option>American Saddlebred</option>
+                <option>Warmblood</option>
+                <option>Tennessee Walking Horse</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <hr class="bg-dark">
+        <!-- *species - if left blank dont show up on form -->
+        <h4>Species</h4>
+        <div class="form-group">
+            <select title="species" class="form-control selectpicker">
+                <option>Select...</option>
+                <option>Equine</option>
+                <option>Bovine</option>
+                <option>Caprine</option>
+                <option>Canine</option>
+                <option>Feline</option>
+                <option value="">Other</option>
+            </select>
+            <small id="emailHelp" class="form-text text-muted">If left blank it will not show up on final form.</small>
+        </div>
+        <hr class="bg-dark">
+        <h4>EXAM</h4>
+        <div class="form-group">
+            <select title="study" class="form-control selectpicker">
                 <option>Select...</option>
                 <option>LF</option>
                 <option>RF</option>
@@ -134,69 +145,51 @@ Author: J C Pottle
                 <option>RH</option>
             </select>
         </div>
-        <!-- End of Study RB -->
+        <hr class="bg-dark">
+        <h4>Sedation</h4>
         <div class="form-group">
-            <label for="study">Area of study - explanation:</label>
-            <textarea class="form-control" id="study" rows="3"></textarea>
+            <select title="sedation" class="form-control selectpicker">
+                <option>Select...</option>
+                <option>Xylazine</option>
+                <option>Xylazine / Butorphanol</option>
+                <option>Detomidine</option>
+                <option>Detomidine / Butorphanol</option>
+            </select>
         </div>
         <hr class="bg-dark">
         <h4>Findings</h4>
+        <!-- ?one box finding -->
         <div class="form-group">
-            <label for="lateral">Lateral:</label>
-            <textarea class="form-control" id="lateral" rows="6"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="medial">Medial:</label>
-            <textarea class="form-control" id="medial" rows="6"></textarea>
-        </div>
-        <hr class="bg-dark">
-        <h4>Doppler</h4>
-        <div class="form-group">
-            <label for="doppler">Doppler:</label>
-            <textarea class="form-control" id="doppler" rows="3"></textarea>
+            <textarea class="form-control" rows="6"></textarea>
         </div>
         <hr class="bg-dark">
         <h4>Interpretation</h4>
         <div class="form-group">
-            <label for="interpretation">Interpretation:</label>
-            <textarea class="form-control" id="interpretation" rows="3"></textarea>
+            <textarea class="form-control" rows="3"></textarea>
         </div>
         <hr class="bg-dark">
         <h4>Recommendations</h4>
         <div class="form-group">
-            <label for="recommendation">Recommendation:</label>
-            <textarea class="form-control" id="recommendation" rows="4"></textarea>
+            <textarea class="form-control" rows="4"></textarea>
         </div>
         <hr class="bg-dark">
-        <h4>Optional</h4>
-        <div class="form-group">
-            <label for="ultrasound">Ultrasound:</label>
-            <input type="text" class="form-control" id="ultrasound">
-        </div>
-        <div class="form-group">
-            <label for="call">Call:</label>
-            <input type="text" class="form-control" id="call">
-        </div>
-        <div class="form-group">
-            <label for="tq">TQ:</label>
-            <input type="text" class="form-control" id="tq">
-        </div>
-        <div class="form-group">
-            <label for="doppler">Doppler:</label>
-            <input type="text" class="form-control" id="doppler">
-        </div>
-        <div class="form-group">
-            <label for="other">Other:</label>
-            <input type="text" class="form-control" id="other">
-        </div>
-        <div class="form-group">
-            <label for="total">TOTAL:</label>
-            <input type="text" class="form-control" id="total">
-        </div>
         <div class="form-group" id="center">
             <button type="submit" class="btn btn-primary form-button">Submit</button>
         </div>
     </form>
+
+    <!-- *for select list options -->
+    <script>
+        var app = angular.module("mainApp", []);
+        app.controller("mainController", function ($scope) {
+            $scope.doctors = ['Barber', 'Brown', 'Paasch', 'Spike-Pierce', 'Garrett', 'Bramlage', 'Embertson',
+                'Hopper', 'Ruggles', 'Woodie', 'Friend', 'Cook', 'Soignier', 'Embly', 'Metcalfe'
+            ]
+        });
+        app.controller("mainController", function Ctrl($scope) {
+            $scope.date = new Date();
+        })
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
