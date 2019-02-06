@@ -70,6 +70,10 @@ Author: J C Pottle
                 <option value="Other">Other</option>
             </select>
             <small class="form-text text-muted">{{rdvm}}</small>
+            <div ng-if="rdvm == 'Other'">
+                <input type="text" class="form-control" placeholder="RDVM" ng-model="otherRDVM" >
+                <small class="form-text text-muted">{{otherRDVM}}</small>
+            </div>
             <!-- TODO: needs input if doctor is not on list -->
             <!-- <input type="text" class="form-control" id="RDVM"> -->
         </div>
@@ -132,6 +136,10 @@ Author: J C Pottle
                 <option value="Other">Other</option>
             </select>
             <small class="form-text text-muted">{{breed}}</small>
+            <div ng-if="breed == 'Other'">
+                <input type="text" class="form-control" placeholder="Breed" ng-model="otherBreed" >
+                <small class="form-text text-muted">{{otherBreed}}</small>
+            </div>
         </div>
         <!-- <hr class="bg-dark"> -->
         <!-- *species - if left blank dont show up on form -->
@@ -147,10 +155,14 @@ Author: J C Pottle
                 <option value="Feline">Feline</option>
                 <option value="Other">Other</option>
             </select>
-            <input type="text" class="form-control" placeholder="Other Species" ng-if="species == 'Other'">
             <small class="form-text text-muted">{{species}}</small>
+            <div ng-if="species == 'Other'">
+                <input type="text" class="form-control" placeholder="Species" ng-model="otherSpecies" >
+                <small class="form-text text-muted">{{otherSpecies}}</small>
+            </div>
             <!-- <small id="emailHelp" class="form-text text-muted">If left blank it will not show up on final form.</small> -->
         </div>
+        
         <h4>EXAM</h4>
         <hr class="bg-dark">
         <div class="form-group">
