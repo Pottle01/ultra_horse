@@ -60,7 +60,7 @@ doc.text('Sedation: ' + sedation, 19.05, 116);
 doc.text('Interpretation: ' + interpretation, 19.05, 122);
 doc.text('Recommendation: ' + recommendation, 19.05, 128);
 // function downloadPDF() {
-    // doc.save('testpdf.pdf');
+     doc.save('testpdf.pdf');
 // }
 
 // var button = document.getElementById("download");
