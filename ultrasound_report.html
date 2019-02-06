@@ -147,7 +147,7 @@ Author: J C Pottle
                 <option value="Feline">Feline</option>
                 <option value="Other">Other</option>
             </select>
-            <input type="text" class="form-control" placeholder="Other Species" hidden>
+            <input type="text" class="form-control" placeholder="Other Species" ng-if="species == 'Other'">
             <small class="form-text text-muted">{{species}}</small>
             <!-- <small id="emailHelp" class="form-text text-muted">If left blank it will not show up on final form.</small> -->
         </div>
