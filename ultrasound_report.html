@@ -20,7 +20,7 @@ Author: J C Pottle
     <link rel="stylesheet" href="form.css">
     <link rel='icon' href='favicon.ico' type='image/x-icon' />
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
-    <!-- <script src="pdf.js"></script> -->
+    
     <title>Ultrasound Report</title>
 </head>
 
@@ -64,30 +64,30 @@ Author: J C Pottle
         </div>
         <div class="form-group" ng-controller="docCtrl">
             <label for="RDVM">RDVM:</label>
-            <select title="RDVM" class="form-control selectpicker" ng-model="rdvm" >
+            <select title="RDVM" class="form-control selectpicker" id="rdvm" ng-model="rdvm" >
                 <option value="" selected>Select...</option>
-                <option ng-repeat="x in doctors">Dr.{{x}}</option>
+                <option ng-repeat="x in doctors">Dr. {{x}}</option>
                 <option value="Other">Other</option>
             </select>
             <small class="form-text text-muted">{{rdvm}}</small>
             <div ng-if="rdvm == 'Other'">
-                <input type="text" class="form-control" placeholder="RDVM" ng-model="otherRDVM" >
-                <small class="form-text text-muted">{{otherRDVM}}</small>
+                <input type="text" class="form-control" placeholder="RDVM" id="otherRDVM" ng-model="otherRDVM">
+                <small class="form-text text-muted">Dr. {{otherRDVM}}</small>
             </div>
             <!-- TODO: needs input if doctor is not on list -->
             <!-- <input type="text" class="form-control" id="RDVM"> -->
         </div>
-        <div class="form-group" ng-controller="nameCtrl">
+        <div class="form-group">
             <label for="patientName">Patient's name:</label>
             <input type="text" class="form-control" id="patientName" ng-model="patName" placeholder="Babe">
             <small class="form-text text-muted">{{patName}}</small>
         </div>
-        <div class="form-group" ng-controller="ownerCtrl">
+        <div class="form-group">
             <label for="ownerName">Owner:</label>
             <input type="text" class="form-control" id="ownerName" ng-model="owner" placeholder="Paul Bunyan">
             <small class="form-text text-muted">{{owner}}</small>
         </div>
-        <div class="form-group" ng-controller="historyCtrl">
+        <div class="form-group">
             <label for="history">History of patient:</label>
             <textarea class="form-control" id="history" rows="3" ng-model="history"></textarea>
             <small class="form-text text-muted">{{history}}</small>
@@ -95,9 +95,9 @@ Author: J C Pottle
         
         <h4>Patient Information</h4>
         <hr class="bg-dark">
-        <div class="form-group" ng-controller="genderCtrl">
+        <div class="form-group">
             <label for="Gender">Gender:</label>
-            <select title="Gender" class="form-control selectpicker" ng-model="gender">
+            <select title="Gender" id="gender" class="form-control selectpicker" ng-model="gender">
                 <option value="">Select...</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -110,9 +110,9 @@ Author: J C Pottle
         </div>
         <!-- <hr class="bg-dark">
         <h4>Age</h4> -->
-        <div class="form-group" ng-controller="ageCtrl">
+        <div class="form-group">
             <label for="Age">Age:</label>
-            <select title="Age" class="form-control selectpicker" ng-model="age">
+            <select title="Age" id="age" class="form-control selectpicker" ng-model="age">
                 <option value="">Select...</option>
                 <option value="Foal">Foal</option>
                 <option value="Wnlg">Wnlg</option>weanling
@@ -123,9 +123,9 @@ Author: J C Pottle
         </div>
         <!-- <hr class="bg-dark">
         <h4>Breed</h4> -->
-        <div class="form-group" ng-controller="breedCtrl">
+        <div class="form-group">
             <label for="Breed">Breed:</label>
-            <select title="Breed" class="form-control selectpicker" ng-model="breed">
+            <select title="Breed" id="breed" class="form-control selectpicker" ng-model="breed">
                 <option value="">Select...</option>
                 <option value="Throughbred">Throughbred</option>
                 <option value="Quarter Horse">Quarter Horse</option>
@@ -137,16 +137,16 @@ Author: J C Pottle
             </select>
             <small class="form-text text-muted">{{breed}}</small>
             <div ng-if="breed == 'Other'">
-                <input type="text" class="form-control" placeholder="Breed" ng-model="otherBreed" >
+                <input type="text" id="otherBreed" class="form-control" placeholder="Breed" ng-model="otherBreed" >
                 <small class="form-text text-muted">{{otherBreed}}</small>
             </div>
         </div>
         <!-- <hr class="bg-dark"> -->
         <!-- *species - if left blank dont show up on form -->
         <!-- <h4>Species</h4> -->
-        <div class="form-group" ng-controller="speciesCtrl">
+        <div class="form-group">
             <label for="Species">Species:</label>
-            <select title="Species" class="form-control selectpicker" ng-model="species">
+            <select title="Species" id="species" class="form-control selectpicker" ng-model="species">
                 <option value="">Select...</option>
                 <option value="Equine">Equine</option>
                 <option value="Bovine">Bovine</option>
@@ -157,7 +157,7 @@ Author: J C Pottle
             </select>
             <small class="form-text text-muted">{{species}}</small>
             <div ng-if="species == 'Other'">
-                <input type="text" class="form-control" placeholder="Species" ng-model="otherSpecies" >
+                <input type="text" id="otherSpecies" class="form-control" placeholder="Species" ng-model="otherSpecies" >
                 <small class="form-text text-muted">{{otherSpecies}}</small>
             </div>
             <!-- <small id="emailHelp" class="form-text text-muted">If left blank it will not show up on final form.</small> -->
@@ -165,9 +165,9 @@ Author: J C Pottle
         
         <h4>EXAM</h4>
         <hr class="bg-dark">
-        <div class="form-group" ng-controller="studyCtrl">
+        <div class="form-group">
             <label for="Study">Study:</label>
-            <select title="Study" class="form-control selectpicker" ng-model="study">
+            <select title="Study" id="study" class="form-control selectpicker" ng-model="study">
                 <option value="">Select...</option>
                 <option value="LF">LF</option>
                 <option value="RF">RF</option>
@@ -177,9 +177,9 @@ Author: J C Pottle
             <small class="form-text text-muted">{{study}}</small>
         </div>
         <!-- <h4>Sedation</h4> -->
-        <div class="form-group" ng-controller="sedationCtrl">
+        <div class="form-group">
             <label for="Sedation">Sedation:</label>
-            <select title="Sedation" class="form-control selectpicker" ng-model="sedation">
+            <select title="Sedation" id="sedation"class="form-control selectpicker" ng-model="sedation">
                 <option value="">Select...</option>
                 <option value="Xylazine">Xylazine</option>
                 <option value="Xylazine / Butorphanol">Xylazine / Butorphanol</option>
@@ -191,23 +191,34 @@ Author: J C Pottle
         <!-- <hr class="bg-dark"> -->
         <!-- <h4>Findings</h4> -->
         <!-- ?one box finding -->
-        <div class="form-group" ng-controller="findingsCtrl">
+        <div class="form-group">
             <label for="findings">Findings:</label>
-            <textarea class="form-control" rows="6" id="findings" ng-model="findings"></textarea>
+            <textarea class="form-control" id="findings" rows="6" id="findings" ng-model="findings"></textarea>
             <small class="form-text text-muted">{{findings}}</small>
         </div>
-        <div class="form-group" ng-controller="interpCtrl">
+        <div class="form-group">
             <label for="interpretation">Interpretation:</label>
-            <textarea class="form-control" rows="3" id="interpretation" ng-model="interpretation"></textarea>
+            <textarea class="form-control" id="interpretation" rows="3" id="interpretation" ng-model="interpretation"></textarea>
             <small class="form-text text-muted">{{interpretation}}</small>
         </div>
-        <div class="form-group" ng-controller="recoCtrl">
+        <div class="form-group">
             <label for="recommendation">Recommendations:</label>
-            <textarea class="form-control" rows="4" id="recommendation" ng-model="recommendation"></textarea>
-            <small class="form-text text-muted">{{recommendation}}</small>
+            <textarea class="form-control" id="recommendation" rows="4" id="recommendation" ng-model="recommendation"></textarea>
+            <small class="form-text text-muted">{{recommendation}}
+            </small>
+        </div>
+        <div class="form-group">
+            
+            <label for="filename">Filename:</label>
+            <input type="text" class="form-control" id="filename" ng-model="filename" value="">
+            <small class="form-text text-danger">Warning: Don't add ".pdf" it will be added automatically!</small>
+            <small class="form-text text-muted" ng-if="filename != ''">Filename: {{filename}}.pdf</small>
+            <small class="form-text text-muted" ng-if="filename == ''" ng-controller="dateCtrl">If filename is left blank filename will default to patient's name and current date. Filename: {{patName}}_{{date | date:'yyyy-MM-dd'}}.pdf</small>
+            <input type="text" id="normFilename" hidden ng-controller="dateCtrl" value="{{patName}}_{{date | date:'yyyy-MM-dd'}}">
+            
         </div>
         <div class="form-group" id="center">
-            <button type="submit" class="btn btn-primary form-button">Convert to PDF</button>
+            <button type="submit" class="btn btn-primary form-button" id="btn">Convert to PDF</button>
         </div>
     </form>
 
@@ -217,58 +228,13 @@ Author: J C Pottle
         app.controller("docCtrl", function ($scope) {
             $scope.doctors = ['Barber', 'Brown', 'Paasch', 'Spike-Pierce', 'Garrett', 'Bramlage', 'Embertson',
                 'Hopper', 'Ruggles', 'Woodie', 'Friend', 'Cook', 'Soignier', 'Embly', 'Metcalfe'];
-            name($scope.rdvm);
         });
         app.controller("dateCtrl", function Ctrl($scope) {
-            $scope.date = new Date(new Date());
+            $scope.date = new Date();
         });
-
-        app.controller("nameCtrl", function ($scope) {
-            
-        });
-        app.controller("ownerCtrl", function ($scope) {
-            
-        });
-        app.controller("historyCtrl", function ($scope) {
-            
-        });
-        app.controller("genderCtrl", function ($scope) {
-            
-        });
-        app.controller("ageCtrl", function ($scope) {
-            
-        });
-        app.controller("breedCtrl", function ($scope) {
-            
-        });
-        app.controller("speciesCtrl", function ($scope) {
-            
-        });
-        app.controller("studyCtrl", function ($scope) {
-            
-        });
-        app.controller("sedationCtrl", function ($scope) {
-            
-        });
-        app.controller("findingsCtrl", function ($scope) {
-            
-        });
-        app.controller("interpCtrl", function ($scope) {
-            
-        });
-        app.controller("recoCtrl", function ($scope) {
-            
-        });
-        // function click(var){
-            
-        // }
-        function name(params) {
-            console.log(params);
-            
-
-        }
     </script>
 
+    <script src="pdf.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
