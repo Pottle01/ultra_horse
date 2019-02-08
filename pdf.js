@@ -96,7 +96,7 @@ function pdf() {
     doc.text('Interpretation: ' + interpretation, 19.05, 128);
     doc.text('Recommendation: ' + recommendation, 19.05, 134);
 
-    // doc.save(filename + '.pdf');
+    doc.save(filename + '.pdf');
 }
 
 function isMobileDevice() {
