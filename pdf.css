@@ -1,0 +1,29 @@
+/*
+ * Filename: d:\visualstudiocode_workspace\Ultra horse\pdf.css
+ * Path: d:\visualstudiocode_workspace\Ultra horse
+ * Created Date: Thursday, February 7th 2019, 7:37:12 am
+ * Author: Jamin C Pottle
+ */
+
+ .center{
+     width: 75%;
+     margin-left: auto;
+     margin-right: auto;
+     text-align: center;
+ }
+
+ .left{
+     text-align: left;
+ }
+
+ h4{
+     margin-bottom: 0;
+ }
+ 
+ hr{
+     margin-top: 0;
+ }
+
+ span{
+     font-weight: normal;
+ }
