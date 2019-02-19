@@ -61,6 +61,16 @@ Author: J C Pottle
             <input type="date" class="form-control" id="date" ng-model="examDate" value="{{date | date:'yyyy-MM-dd'}}">
             <!-- <small id="rdvm" class="form-text text-muted">{{examDate}}</small> -->
         </div>
+        <div class="form-group">
+            <label for="patientName">Patient's name:</label>
+            <input type="text" class="form-control" id="patientName" ng-model="patName" placeholder="Babe">
+            <small class="form-text text-muted">{{patName}}</small>
+        </div>
+        <div class="form-group">
+            <label for="ownerName">Owner:</label>
+            <input type="text" class="form-control" id="ownerName" ng-model="owner" placeholder="Paul Bunyan">
+            <small class="form-text text-muted">{{owner}}</small>
+        </div>
         <div class="form-group" ng-controller="docCtrl">
             <label for="RDVM">RDVM:</label>
             <select title="RDVM" class="form-control selectpicker" id="rdvm" ng-model="rdvm" >
@@ -76,52 +86,26 @@ Author: J C Pottle
             <!-- TODO: needs input if doctor is not on list -->
             <!-- <input type="text" class="form-control" id="RDVM"> -->
         </div>
-        <div class="form-group">
-            <label for="patientName">Patient's name:</label>
-            <input type="text" class="form-control" id="patientName" ng-model="patName" placeholder="Babe">
-            <small class="form-text text-muted">{{patName}}</small>
-        </div>
-        <div class="form-group">
-            <label for="ownerName">Owner:</label>
-            <input type="text" class="form-control" id="ownerName" ng-model="owner" placeholder="Paul Bunyan">
-            <small class="form-text text-muted">{{owner}}</small>
-        </div>
-        <div class="form-group">
-            <label for="history">History of patient:</label>
-            <textarea class="form-control" id="history" rows="5" ng-model="history"></textarea>
-            <small class="form-text text-muted">{{history}}</small>
-        </div>
         
         <h4>Patient Information</h4>
         <hr class="bg-dark">
         <div class="form-group">
-            <label for="Gender">Gender:</label>
-            <select title="Gender" id="gender" class="form-control selectpicker" ng-model="gender">
+            <label for="Species">Species:</label>
+            <select title="Species" id="species" class="form-control selectpicker" ng-model="species">
                 <option value="">Select...</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Colt">Colt</option>
-                <option value="Gelding">Gelding</option>
-                <option value="Filly">Filly</option>
-                <option value="Mare">Mare</option>
+                <option value="Equine">Equine</option>
+                <option value="Bovine">Bovine</option>
+                <option value="Caprine">Caprine</option>
+                <option value="Canine">Canine</option>
+                <option value="Feline">Feline</option>
+                <option value="Other">Other</option>
             </select>
-            <small class="form-text text-muted">{{gender}}</small>
+            <small class="form-text text-muted">{{species}}</small>
+            <div ng-if="species == 'Other'">
+                <input type="text" id="otherSpecies" class="form-control" placeholder="Species" ng-model="otherSpecies" >
+                <small class="form-text text-muted">{{otherSpecies}}</small>
+            </div>
         </div>
-        <!-- <hr class="bg-dark">
-        <h4>Age</h4> -->
-        <div class="form-group">
-            <label for="Age">Age:</label>
-            <select title="Age" id="age" class="form-control selectpicker" ng-model="age">
-                <option value="">Select...</option>
-                <option value="Foal">Foal</option>
-                <option value="Wnlg">Wnlg</option>weanling
-                <option value="Yrlg">Yrlg</option>yearling
-                <option value="Adult">Adult</option>
-            </select>
-            <small class="form-text text-muted">{{age}}</small>
-        </div>
-        <!-- <hr class="bg-dark">
-        <h4>Breed</h4> -->
         <div class="form-group">
             <label for="Breed">Breed:</label>
             <select title="Breed" id="breed" class="form-control selectpicker" ng-model="breed">
@@ -140,26 +124,35 @@ Author: J C Pottle
                 <small class="form-text text-muted">{{otherBreed}}</small>
             </div>
         </div>
-        <!-- <hr class="bg-dark"> -->
-        <!-- *species - if left blank dont show up on form -->
-        <!-- <h4>Species</h4> -->
         <div class="form-group">
-            <label for="Species">Species:</label>
-            <select title="Species" id="species" class="form-control selectpicker" ng-model="species">
+            <label for="Gender">Sex:</label>
+            <select title="Gender" id="gender" class="form-control selectpicker" ng-model="gender">
                 <option value="">Select...</option>
-                <option value="Equine">Equine</option>
-                <option value="Bovine">Bovine</option>
-                <option value="Caprine">Caprine</option>
-                <option value="Canine">Canine</option>
-                <option value="Feline">Feline</option>
-                <option value="Other">Other</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Colt">Colt</option>
+                <option value="Gelding">Gelding</option>
+                <option value="Filly">Filly</option>
+                <option value="Mare">Mare</option>
             </select>
-            <small class="form-text text-muted">{{species}}</small>
-            <div ng-if="species == 'Other'">
-                <input type="text" id="otherSpecies" class="form-control" placeholder="Species" ng-model="otherSpecies" >
-                <small class="form-text text-muted">{{otherSpecies}}</small>
-            </div>
-            <!-- <small id="emailHelp" class="form-text text-muted">If left blank it will not show up on final form.</small> -->
+            <small class="form-text text-muted">{{gender}}</small>
+        </div>
+        <div class="form-group">
+            <label for="Age">Age:</label>
+            <select title="Age" id="age" class="form-control selectpicker" ng-model="age">
+                <option value="">Select...</option>
+                <option value="Foal">Foal</option>
+                <option value="Wnlg">Wnlg</option>weanling
+                <option value="Yrlg">Yrlg</option>yearling
+                <option value="Adult">Adult</option>
+            </select>
+            <small class="form-text text-muted">{{age}}</small>
+        </div>
+        
+        <div class="form-group">
+            <label for="history">History of patient:</label>
+            <textarea class="form-control" id="history" rows="5" ng-model="history"></textarea>
+            <small class="form-text text-muted">{{history}}</small>
         </div>
         
         <h4>EXAM</h4>
@@ -170,10 +163,44 @@ Author: J C Pottle
                 <option value="">Select...</option>
                 <option value="LF">LF</option>
                 <option value="RF">RF</option>
+                <option value="LF/RF">LF/RF</option>
                 <option value="LH">LH</option>
                 <option value="RH">RH</option>
+                <option value="LH/RH">LH/RH</option>
+                <option value="Abdomen">Abandon</option>
+                <option value="Abdomen/Thorax">Abandon/Thorax</option>
+                <option value="Larynx">Larynx</option>
+                <option value="Pelvis">Pelvis</option>
+                <option value="Other">Other</option>
             </select>
             <small class="form-text text-muted">{{study}}</small>
+            <div ng-if="study == 'Other'">
+                <input type="text" id="otherStudy" class="form-control" placeholder="Study" ng-model="otherStudy" >
+                <small class="form-text text-muted">{{otherStudy}}</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Study">Study:</label>
+            <select title="Study2" id="study2" class="form-control selectpicker" ng-model="study2">
+                <option value="">Select...</option>
+                <option value="Metacarpus">Metacarpus</option>
+                <option value="Metatarsus">Metatarsus</option>
+                <option value="Suspensory Branches">Suspensory Branches</option>
+                <option value="Digital Sheath">Digital Sheath</option>
+                <option value="Carpal Canal">Carpal Canal</option>
+                <option value="Fetlock">Fetlock</option>
+                <option value="Stifle">Stifle</option>
+                <option value="Tarsus">Tarsus</option>
+                <option value="SDFT">SDFT</option>
+                <option value="DDFT">DDFT</option>
+                <option value="Suspensory Ligament">Suspensory Ligament</option>
+                <option value="Other">Other</option>
+            </select>
+            <small class="form-text text-muted">{{study2}}</small>
+            <div ng-if="study2 == 'Other'">
+                <input type="text" id="otherStudy2" class="form-control" placeholder="Study" ng-model="otherStudy2" >
+                <small class="form-text text-muted">{{otherStudy2}}</small>
+            </div>
         </div>
         <!-- <h4>Sedation</h4> -->
         <div class="form-group">
