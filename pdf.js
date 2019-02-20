@@ -245,8 +245,8 @@ function pdf() {
                         if (i == 14) {//puts line after interpretation
                             doc.setLineWidth(1 / 72);
                             doc.line(0.5, verticalOffset + size / 72, 7.5, verticalOffset + size / 72);
+                            verticalOffset += (13 / 72);
                         }
-                        verticalOffset += ((lines.length + .5) * size / 72) / 4;
                     } else {
                         verticalOffset += (lines.length + 0.75) * size / 72;
                         if (i == 9) {//puts line after history
@@ -261,18 +261,12 @@ function pdf() {
 
         }
     }
-    // doc.addImage(sign, 'jpeg', 3.65, verticalOffset + size / 72, 1.5, .5);
-    // verticalOffset += .4;
-    // doc.line(3.5, verticalOffset + size / 72, 5.3, verticalOffset + size / 72);
-    // verticalOffset += .15;
-    // doc.setFontType('italic');
-    // doc.text(3.65, verticalOffset + size / 72, "Colton R. Thacker, DVM");
-    doc.addImage(sign, 'jpeg', 3.15, verticalOffset + size / 72, 1.5, .5);
+    doc.addImage(sign, 'jpeg', 6, verticalOffset + size / 72, 1.5, .5);
     verticalOffset += .4;
-    doc.line(3, verticalOffset + size / 72, 4.8, verticalOffset + size / 72);
+    doc.line( 5.85, verticalOffset + size / 72, 7.5, verticalOffset + size / 72);
     verticalOffset += .15;
     doc.setFontType('italic');
-    doc.text(3.15, verticalOffset + size / 72, "Colton R. Thacker, DVM");
+    doc.text(5.9, verticalOffset + size / 72, "Colton R. Thacker, DVM");
     doc.save(filename + '.pdf');
 }
 
